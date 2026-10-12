@@ -2,6 +2,12 @@
 
 这是一个基于 Python 标准库 Tkinter 的 Windows 图形界面工具，用于按文件名中的共同信息批量整理文件。
 
+## 开源许可证
+
+本项目采用 [GNU General Public License v3.0](LICENSE) 授权，对应 SPDX 标识为 `GPL-3.0-only`。
+
+这是强 Copyleft 许可证：分发本项目的修改版本或基于本项目形成的衍生作品时，必须继续采用 GPLv3，并向接收者提供相应源代码。具体权利和义务以 `LICENSE` 中的完整许可证正文为准。
+
 ## 运行
 
 电脑安装 Python 3.9 或更高版本后，双击 `run_file_organizer.bat`，或在 PowerShell 中运行：
