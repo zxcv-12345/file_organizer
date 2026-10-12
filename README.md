@@ -53,6 +53,8 @@ acb-1234567-003.jpg
 
 构建完成后，打开对应的 Actions 运行记录，在 `Artifacts` 区域下载 `FileOrganizer-Windows-x64`。压缩包中包含可独立运行的 `FileOrganizer.exe`，目标电脑不需要安装 Python。
 
+当代码推送到 `main` 分支且构建成功后，工作流还会自动创建并推送 `build-<运行编号>` 格式的 Git 标签，例如 `build-12`。PR、其他分支和手动运行不会创建标签。
+
 ## 本地打包为 exe（可选）
 
 如果希望在没有 Python 的电脑上运行，可在已安装 Python 的电脑执行：

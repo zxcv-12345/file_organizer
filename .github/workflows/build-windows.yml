@@ -2,11 +2,13 @@ name: Build Windows EXE
 
 on:
   push:
+    branches:
+      - "**"
   pull_request:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   build-windows:
@@ -50,3 +52,12 @@ jobs:
           if-no-files-found: error
           retention-days: 30
 
+      - name: Create build tag
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        shell: pwsh
+        run: |
+          $tag = "build-${{ github.run_number }}"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git tag -a $tag -m "Automated build $tag"
+          git push origin $tag
