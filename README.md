@@ -57,9 +57,9 @@ acb-1234567-003.jpg
 - 创建或更新 Pull Request
 - 在 GitHub Actions 页面手动运行 `Build Windows EXE`
 
-构建完成后，打开对应的 Actions 运行记录，在 `Artifacts` 区域下载 `FileOrganizer-Windows-x64`。压缩包中包含可独立运行的 `FileOrganizer.exe`，目标电脑不需要安装 Python。
+构建完成后，打开对应的 Actions 运行记录，在 `Artifacts` 区域下载 `FileOrganizer-Windows-x64`。压缩包中包含可独立运行的 `FileOrganizer.exe`，目标电脑不需要安装 Python。Actions artifact 保留 30 天。
 
-当代码推送到 `main` 分支且构建成功后，工作流还会自动创建并推送 `build-<运行编号>` 格式的 Git 标签，例如 `build-12`。PR、其他分支和手动运行不会创建标签。
+当代码推送到 `main` 分支且构建成功后，工作流还会自动创建 `build-<运行编号>` 格式的 Git 标签和 GitHub Release，例如 `build-12`，并将 `FileOrganizer.exe` 作为 Release 附件永久提供下载。PR、其他分支和手动运行不会创建 Release。
 
 ## 本地打包为 exe（可选）
 

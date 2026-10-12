@@ -52,12 +52,14 @@ jobs:
           if-no-files-found: error
           retention-days: 30
 
-      - name: Create build tag
+      - name: Publish GitHub release
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           $tag = "build-${{ github.run_number }}"
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git tag -a $tag -m "Automated build $tag"
-          git push origin $tag
+          gh release create $tag "dist/FileOrganizer.exe" `
+            --target "${{ github.sha }}" `
+            --title $tag `
+            --generate-notes
